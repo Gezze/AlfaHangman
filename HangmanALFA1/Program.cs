@@ -8,7 +8,7 @@ namespace HangmanAlfa
 {
     class Program
 
-        ///TEST SYNK Stefan
+        ///TEST Stefan
         //Test MF
         //Loveyomo123
 
