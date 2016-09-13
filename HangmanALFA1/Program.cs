@@ -18,7 +18,7 @@ namespace HangmanAlfa
         static string playerName;
         static int lives = 7;
         static string attempts;
-        static string word;
+        static string secretWord;
         static string guessedLetter;
 
 
@@ -28,21 +28,21 @@ namespace HangmanAlfa
             Welcome();
             PlayerName();
             MenuStart();
-            WordGenerator();
-            CountLetters();
-            CorrectLetter();
-            ShowLetter();
-            IncorrectLetter();
-            ShowWrong();
-            GameWon();
-            GameLost();
-            TryAgain();
+            //WordGenerator();
+            //CountLetters();
+            GuessedWord();
+            //ShowLetter();
+            //IncorrectLetter();
+           // ShowWrong();
+            //GameWon();
+            //GameLost();
+            //TryAgain();
             //GameEngine();
         }
         static void Welcome()
         {
-            Console.WriteLine("Welcome to the award winning Hangman Game made by the Alpha Team");
-            Console.ReadLine(); // Regler ska skrivas upp här
+            Console.WriteLine("Welcome to the award winning Hangman Game made by the Alpha Team\n");
+           
 
         }
         static void MenuStart()
@@ -62,7 +62,7 @@ namespace HangmanAlfa
                 default: Console.WriteLine("Choose 1,2 or 3!"); Console.ReadLine(); MenuStart(); break;
                     
             }
-            Console.ReadLine();  // ska lägga till en if sats,
+            //Console.ReadLine();  // ska lägga till en if sats,
         }
         static void Quit()
         {
@@ -78,21 +78,34 @@ namespace HangmanAlfa
         static void WordGenerator()
         {
             // ska slumpa ett ord från en ordbank, utvecklas senare med array när vi har fler ord
-            word = "Healthy"; //byt till generator
+        
+            secretWord = "healthy"; //byt till generator
         }
         static void Lives(bool letterCorrect)
         {
             // hanterar liven, utvecklas med if senare
             Console.WriteLine(letterCorrect);
         }
-        static void CountLetters()
+        static int CountLetters()
         {
             // presenterar antal bokstäver i ordet
-            int wordCharacters = word.Length;
+            int wordCharacters;
+            return wordCharacters = secretWord.Length;
         }
-        static void CorrectLetter()
+        static void GuessedWord()
         {
-            Console.WriteLine("CorrectLetter");
+            Console.WriteLine("The word has " + CountLetters() + " letters in it.");
+            Console.WriteLine("Guess a word!"); //Kommer bytas ut mot en bokstav senare
+            guessedLetter = Console.ReadLine();
+            if (guessedLetter.ToLower() == secretWord)
+            {
+                GameWon();
+            }
+            
+            else
+            {
+                IncorrectLetter();
+            }
             //Lives(true);
         }
         static void ShowLetter()
@@ -109,6 +122,14 @@ namespace HangmanAlfa
             lives--;
             Console.WriteLine("You have " + lives + " lives left");
             Console.ReadLine();
+            if (lives > 0)
+            {
+                GuessedWord();
+            }
+            else
+            {
+                GameLost();
+            }
         }
 
         static void ShowWrong()
@@ -134,7 +155,19 @@ namespace HangmanAlfa
         {
             // Frågar om spelaren vill spela igen
             Console.WriteLine("Try again? Y/N");
-            Console.ReadLine();
+            string testBokstav = Console.ReadLine();
+            if (testBokstav.ToUpper() == "Y")
+            {
+                MenuStart();
+            }
+            else if (testBokstav.ToUpper() == "N")
+            {
+                Quit();
+            }
+            else
+            {
+                Console.WriteLine("MEN SKRIV Y ELLER N");
+            }
             // anropa quit eller meny
         }
         static void GameEngine()
