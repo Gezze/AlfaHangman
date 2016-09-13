@@ -9,6 +9,7 @@ namespace HangmanAlfa
     class Program
 
         ///TEST SYNK Stefan
+        ///Test paggeluring
     {
         static string playerName;
         static int lives = 7;
