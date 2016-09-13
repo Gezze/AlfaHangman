@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace HangmanAlfa
 {
     class Program
+
+        ///TEST SYNK Stefan
     {
         static string playerName;
         static int lives = 7;
