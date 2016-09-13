@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 namespace HangmanAlfa
 {
     class Program
-    { 
+
+        ///TEST SYNK Stefan
+        //Test MF
+        //Loveyomo123
+
+        ///Test paggeluring
+        /// Test Adrian123
+    {
         static string playerName;
         static int lives = 7;
         static string attempts;
