@@ -10,7 +10,7 @@ namespace HangmanAlfa
 
         ///TEST SYNK Stefan
         //Test MF
-        //Loveyo
+        //Loveyomo
 
         ///Test paggeluring
     {
