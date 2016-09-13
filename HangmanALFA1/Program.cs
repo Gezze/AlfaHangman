@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace HangmanAlfa
 {
     class Program
-    {
+    { 
         static string playerName;
         static int lives = 7;
         static string attempts;
