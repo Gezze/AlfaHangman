@@ -49,15 +49,25 @@ namespace HangmanAlfa
         {
             // Låter spelaren välja mellan 1 och 2
             Console.WriteLine("1: Start");
-            Console.WriteLine("2: Quit");
+            Console.WriteLine("2: How To");
+            Console.WriteLine("3: Quit");
             string input = Console.ReadLine();
             int inputInt = int.Parse(input); // behöver felhantering
+
+            switch(inputInt)
+            {
+                case 1: WordGenerator(); break;
+                case 2: HowTo(); break;
+                case 3: Quit(); break;
+                default: Console.WriteLine("Choose 1,2 or 3!"); Console.ReadLine(); MenuStart(); break;
+                    
+            }
             Console.ReadLine();  // ska lägga till en if sats,
         }
         static void Quit()
         {
             // Credits avslutningsgrafik
-
+            Environment.Exit(0);
         }
         static void PlayerName()
         {
@@ -131,6 +141,12 @@ namespace HangmanAlfa
         {
             // Kontrollerar spelares liv och gissningar i en loop till spelets slut (provosorisk)
             //
+        }
+        static void HowTo()
+        {
+            Console.WriteLine("Regler and shit");
+            Console.ReadLine();
+            MenuStart();
         }
     }
 
