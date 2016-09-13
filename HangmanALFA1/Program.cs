@@ -10,6 +10,7 @@ namespace HangmanAlfa
 
         ///TEST SYNK Stefan
         ///Test paggeluring
+        /// Test Adrian
     {
         static string playerName;
         static int lives = 7;
