@@ -17,25 +17,29 @@ namespace HangmanAlfa
     {
         static string playerName;
         static int lives = 7;
-        static string attempts;
+        //static string attempts;
         static string secretWord;
         static string guessedLetter;
         static int levelChosen;
-        static string secretWordEasy;
-        static string secretWordNormal;
-        static string secretWordHard;
-
+        static string tryAgain;
 
         static void Main(string[] args)
         {
 
+
             Welcome();
             PlayerName();
-            MenuStart();
-            Difficulty();
-            //WordGenerator();
-            //CountLetters();
-            GuessedWord();
+            bool tryAgain = true;
+            while(tryAgain)
+            {// någon form av loop
+                MenuStart();
+                Difficulty();
+                WordGenerator();
+                //CountLetters();
+                GuessedWord();
+                
+                
+            }
             //ShowLetter();
             //IncorrectLetter();
             // ShowWrong();
@@ -95,7 +99,7 @@ namespace HangmanAlfa
             Console.WriteLine("Choose level");
             Console.WriteLine("1: Easy");
             Console.WriteLine("2: Normal");
-            Console.WriteLine("3:  Hard");
+            Console.WriteLine("3: Hard");
 
             string input = Console.ReadLine();
             levelChosen = int.Parse(input);
@@ -111,23 +115,24 @@ namespace HangmanAlfa
             return levelChosen;
 
         }
-        static void WordGenerator()
+        static string WordGenerator()
         {
             // ska slumpa ett ord från en ordbank, utvecklas senare med array när vi har fler ord
 
             if (levelChosen == 1)
             {
-                string secretWordEasy = "waterboy";
+                secretWord = "waterboy";
             }
             else if (levelChosen == 2)
             {
-                string secretWordNormal = "flower";
+                secretWord = "flower";
             }
 
             else if (levelChosen == 3)
             {
-                string secretWordHard = "jazz";
+                secretWord = "jazz";
                 }
+            return secretWord;
             }       
         
         static void Lives(bool letterCorrect)
@@ -205,18 +210,19 @@ namespace HangmanAlfa
             // Frågar om spelaren vill spela igen
             Console.WriteLine("Try again? Y/N");
             string testBokstav = Console.ReadLine();
-            if (testBokstav.ToUpper() == "Y")
+            if (testBokstav.ToUpper() == "Y" )
             {
-                MenuStart();
+                tryAgain = "bok";
             }
             else if (testBokstav.ToUpper() == "N")
             {
-                Quit();
+
             }
             else
             {
                 Console.WriteLine("MEN SKRIV Y ELLER N");
             }
+
             // anropa quit eller meny
         }
         static void GameEngine()
