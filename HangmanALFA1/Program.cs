@@ -20,6 +20,10 @@ namespace HangmanAlfa
         static string attempts;
         static string secretWord;
         static string guessedLetter;
+        static int levelChosen;
+        static string secretWordEasy;
+        static string secretWordNormal;
+        static string secretWordHard;
 
 
         static void Main(string[] args)
@@ -28,6 +32,7 @@ namespace HangmanAlfa
             Welcome();
             PlayerName();
             MenuStart();
+            Difficulty();
             //WordGenerator();
             //CountLetters();
             GuessedWord();
@@ -85,13 +90,46 @@ namespace HangmanAlfa
         
         }
 
-        
+        static int Difficulty()
+        {
+            Console.WriteLine("Choose level");
+            Console.WriteLine("1: Easy");
+            Console.WriteLine("2: Normal");
+            Console.WriteLine("3:  Hard");
+
+            string input = Console.ReadLine();
+            levelChosen = int.Parse(input);
+
+            switch (levelChosen)
+            {
+                case 1: Console.WriteLine("Easy level chosen"); break;
+                case 2: Console.WriteLine("Normal level chosen"); break;
+                case 3: Console.WriteLine("Hard level chosen"); break;
+                default: Difficulty(); break;
+
+            }
+            return levelChosen;
+
+        }
         static void WordGenerator()
         {
             // ska slumpa ett ord från en ordbank, utvecklas senare med array när vi har fler ord
+
+            if (levelChosen == 1)
+            {
+                string secretWordEasy = "waterboy";
+            }
+            else if (levelChosen == 2)
+            {
+                string secretWordNormal = "flower";
+            }
+
+            else if (levelChosen == 3)
+            {
+                string secretWordHard = "jazz";
+                }
+            }       
         
-            secretWord = "healthy"; //byt till generator
-        }
         static void Lives(bool letterCorrect)
         {
             // hanterar liven, utvecklas med if senare
