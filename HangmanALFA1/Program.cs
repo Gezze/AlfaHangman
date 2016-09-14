@@ -8,12 +8,12 @@ namespace HangmanAlfa
 {
     class Program
 
-        ///TEST Stefan
-        //Test MF
-        //Loveyomo123
+    ///TEST Stefan
+    //Test MF
+    //Loveyomo123
 
-        ///Test paggeluring
-        /// Test Adrian123
+    ///Test paggeluring
+    /// Test Adrian123
     {
         static string playerName;
         static int lives = 7;
@@ -33,7 +33,7 @@ namespace HangmanAlfa
             GuessedWord();
             //ShowLetter();
             //IncorrectLetter();
-           // ShowWrong();
+            // ShowWrong();
             //GameWon();
             //GameLost();
             //TryAgain();
@@ -42,7 +42,7 @@ namespace HangmanAlfa
         static void Welcome()
         {
             Console.WriteLine("Welcome to the award winning Hangman Game made by the Alpha Team\n");
-           
+
 
         }
         static void MenuStart()
@@ -54,13 +54,13 @@ namespace HangmanAlfa
             string input = Console.ReadLine();
             int inputInt = int.Parse(input); // behöver felhantering
 
-            switch(inputInt)
+            switch (inputInt)
             {
                 case 1: WordGenerator(); break;
                 case 2: HowTo(); break;
                 case 3: Quit(); break;
                 default: Console.WriteLine("Choose 1,2 or 3!"); Console.ReadLine(); MenuStart(); break;
-                    
+
             }
             //Console.ReadLine();  // ska lägga till en if sats,
         }
@@ -71,10 +71,21 @@ namespace HangmanAlfa
         }
         static void PlayerName()
         {
-            // Spelaren skriver in sitt namn och sparas
-            Console.WriteLine("Enter your name");
+            // Spelaren skriver in sitt namn och det kontrolleras att det är minst 3 bokstäver långt
+
+
+            Console.WriteLine("Enter your name: ");
             playerName = Console.ReadLine();
+            while (playerName.Length <3)
+            {
+                Console.WriteLine("invalid name, min 3 characters");
+                playerName = Console.ReadLine();
+            }
+        
+        
         }
+
+        
         static void WordGenerator()
         {
             // ska slumpa ett ord från en ordbank, utvecklas senare med array när vi har fler ord
